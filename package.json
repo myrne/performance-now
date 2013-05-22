@@ -1,0 +1,31 @@
+{
+  "name": "performance-now",
+  "description": "Implements performance.now (based on process.hrtime).",
+  "keywords": [],
+  "version": "0.0.0",
+  "author": "Meryn Stol <merynstol@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/meryn/performance-now",
+  "bugs": "https://github.com/meryn/performance-now/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meryn/performance-now.git"
+  },
+  "private": false,
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.6.2",
+    "mocha": "~1.9.0"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  },
+  "main": "lib/performance-now.js",
+  "scripts": {
+    "prepublish": "npm test",
+    "pretest": "make build",
+    "test": "make test"
+  }
+}
