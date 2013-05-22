@@ -6,7 +6,7 @@ Modern browsers have a `window.performance` object with - among others - a `now`
 
 According to the [High Resolution Time specification](http://www.w3.org/TR/hr-time/), the number of miliseconds reported by `performance.now` should be relative to the value of `performance.timing.navigationStart`. For this module, it's relative to when the time when this module got loaded. Right after requiring this module for the first time, the reported time is expected to have a near-zero value.
 
-Using `process.hrtime` means that the reported time will be monotonically increasing, and not subject to clock-drift. At the same time, this means that the time reported will diverge slowly from "clock-time", with a speed of about a milisecond every few minutes.
+Using `process.hrtime` means that the reported time will be monotonically increasing, and not subject to clock-drift.
 
 ## Example usage
 
