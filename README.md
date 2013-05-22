@@ -1,10 +1,10 @@
 # performance-now [![Build Status](https://travis-ci.org/meryn/performance-now.png?branch=master)](https://travis-ci.org/meryn/performance-now) [![Dependency Status](https://david-dm.org/meryn/performance-now.png)](https://david-dm.org/meryn/performance-now)
 
-Implements performance.now (based on process.hrtime)
+Implements a function similar to `performance.now` (based on `process.hrtime`).
 
-Modern browsers have a `window.performance` object with among others, a `now` method which gives time in miliseconds, but with sub-milisecond precision. This module offers the same function based on the Node.js native `process.hrtime` function.
+Modern browsers have a `window.performance` object with - among others - a `now` method which gives time in miliseconds, but with sub-milisecond precision. This module offers the same function based on the Node.js native `process.hrtime` function.
 
-According to the [High Resolution Time specification](http://www.w3.org/TR/hr-time/), the number of miliseconds reported by `performance.now`` should be relative to the 'navigationStart`. For this module, it's relative to when the time when this module got loaded. Right after requiring this module for the first time, the reported time is expected to have a near-zero value.
+According to the [High Resolution Time specification](http://www.w3.org/TR/hr-time/), the number of miliseconds reported by `performance.now` should be relative to the `performance.timing.navigationStart`. For this module, it's relative to when the time when this module got loaded. Right after requiring this module for the first time, the reported time is expected to have a near-zero value.
 
 Using `process.hrtime` means that the reported time will be monotonically increasing, and not subject to clock-drift. At the same time, this means that the time reported will diverge slowly from "clock-time", with a speed of about a milisecond every few minutes.
 
@@ -18,7 +18,7 @@ console.log(start.toFixed(3)) // ~ 0.05 on my system
 console.log((start-end).toFixed(3)) // ~ 0.002 on my system
 ```
 
-Running the now function two times right after each other yields a time difference of a few microseconds. Given this overhead, I think it's best to assume that the precision of intervals computed with this method is not higher than 10 microseconds if you don't know the exact overhead.
+Running the now function two times right after each other yields a time difference of a few microseconds. Given this overhead, I think it's best to assume that the precision of intervals computed with this method is not higher than 10 microseconds, if you don't know the exact overhead on your own system.
 
 ## Credits
 
