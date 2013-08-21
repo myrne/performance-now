@@ -7,5 +7,9 @@ else if process? and process.hrtime
     hr = hrtime()
     hr[0] * 1e9 + hr[1]
   loadTime = getNanoSeconds()
+else if Date.now
+  module.exports = -> Date.now() - loadTime
+  loadTime = Date.now()
 else
-  module.exports = -> Date.now()
+  module.exports = -> new Date().getTime() - loadTime
+  loadTime = new Date().getTime()
