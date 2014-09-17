@@ -2,7 +2,7 @@
   "name": "performance-now",
   "description": "Implements performance.now (based on process.hrtime).",
   "keywords": [],
-  "version": "0.1.4",
+  "version": "0.2.0",
   "author": "Meryn Stol <merynstol@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/meryn/performance-now",
