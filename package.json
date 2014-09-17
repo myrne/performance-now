@@ -14,8 +14,8 @@
   "private": false,
   "dependencies": {},
   "devDependencies": {
-    "coffee-script": "~1.6.2",
-    "mocha": "~1.9.0"
+    "coffee-script": "~1.7.1",
+    "mocha": "~1.21.0"
   },
   "optionalDependencies": {},
   "main": "lib/performance-now.js",
