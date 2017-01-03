@@ -2,7 +2,7 @@
   "name": "performance-now",
   "description": "Implements performance.now (based on process.hrtime).",
   "keywords": [],
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": "Braveg1rl <braveg1rl@outlook.com>",
   "license": "MIT",
   "homepage": "https://github.com/braveg1rl/performance-now",
