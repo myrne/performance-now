@@ -9,17 +9,4 @@ watch:
 test:
 	node_modules/.bin/mocha
 
-jumpstart:
-	curl -u 'meryn' https://api.github.com/user/repos -d '{"name":"performance-now", "description":"Implements performance.now (based on process.hrtime).","private":false}'
-	mkdir -p src
-	touch src/performance-now.coffee
-	mkdir -p test
-	touch test/performance-now.coffee
-	npm install
-	git init
-	git remote add origin git@github.com:meryn/performance-now
-	git add .
-	git commit -m "jumpstart commit."
-	git push -u origin master
-
 .PHONY: test
