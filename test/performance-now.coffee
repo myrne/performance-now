@@ -3,9 +3,11 @@ Bluebird = require "bluebird"
 
 now = require "../"
 
+getUptime = -> process.uptime() * 1e3
+
 describe "now", ->
-  it "gives a value above 50 after a 50 ms timeout", ->
-    Bluebird.resolve().delay(50).then -> assert.isAbove now(), 50
+  it "reported time differs at most 1ms from a freshly reported uptime", ->
+    assert.isAtMost Math.abs(now()-getUptime()), 1
 
   it "two subsequent calls return an increasing number", ->
     assert.isBelow now(), now()
