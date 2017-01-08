@@ -1,38 +1,35 @@
-assert = require "assert"
+{assert} = require "chai"
+Bluebird = require "bluebird"
 
-delay = (ms, fn) -> setTimeout fn, ms
-now = undefined
+now = require "../"
+
 describe "now", ->
-  it "initially gives a near zero (< 20 ms) time ", ->
-    now = require "../"
-    assert now() < 20
-    
-  it "gives a positive time", ->
-    assert now() > 0
+  it "gives a value above 50 after a 50 ms timeout", ->
+    Bluebird.resolve().delay(50).then -> assert.isAbove now(), 50
 
   it "two subsequent calls return an increasing number", ->
-    a = now()
-    b = now()      
-    assert now() < now()
-    
-  it "has less than 10 microseconds overhead", ->
-    Math.abs(now() - now()) < 0.010
-  
-  it "can do 1,000,000 calls really quickly", ->
-    now() for i in [0...1000000]
-    
-  it "shows that at least 990 ms has passed after a timeout of 1 second", (done) ->
-    a = now()
-    delay 1000, ->
-      b = now()
-      diff = b - a
-      return done new Error "Diff (#{diff}) lower than 990." if diff < 990
-      return done null
+    assert.isBelow now(), now()
 
-  it "shows that not more than 1020 ms has passed after a timeout of 1 second", (done) ->
-    a = now()
-    delay 1000, ->
-      b = now()
-      diff = b - a
-      return done new Error "Diff (#{diff}) higher than 1020." if diff > 1020
-      return done null        
+  it "has less than 10 microseconds overhead", ->
+    assert.isBelow Math.abs(now() - now()), 0.010
+
+  it "can be called 1 million times in under 1 second (averaging under 1 microsecond per call)", ->
+    @timeout 1000
+    now() for [0...1e6]
+    undefined
+
+  it "shows that at least 0.2 ms has passed after a timeout of 1 ms", ->
+    earlier = now()
+    Bluebird.resolve().delay(1).then -> assert.isAbove (now()-earlier), 0.2
+
+  it "shows that at most 2 ms has passed after a timeout of 1 ms", ->
+    earlier = now()
+    Bluebird.resolve().delay(1).then -> assert.isBelow (now()-earlier), 2
+
+  it "shows that at least 190ms ms has passed after a timeout of 200ms", ->
+    earlier = now()
+    Bluebird.resolve().delay(200).then -> assert.isAbove (now()-earlier), 190
+
+  it "shows that at most 220 ms has passed after a timeout of 200ms", ->
+    earlier = now()
+    Bluebird.resolve().delay(200).then -> assert.isBelow (now()-earlier), 220
