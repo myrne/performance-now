@@ -11,13 +11,13 @@ describe "scripts/initital-value.coffee (module.uptime(), expressed in milliseco
 describe "scripts/delayed-require.coffee (sum of uptime and 200 ms delay`)", ->
   result = exec("./test/scripts/delayed-require.coffee").toString().trim()
   it "printed #{result}", ->
-  it "printed a value above 330", -> assert.isAbove result, 330
+  it "printed a value above 310", -> assert.isAbove result, 310
   it "printed a value below 400", -> assert.isBelow result, 400
 
 describe "scripts/delayed-call.coffee (sum of uptime and 200 ms delay`)", ->
   result = exec("./test/scripts/delayed-call.coffee").toString().trim()
   it "printed #{result}", ->
-  it "printed a value above 330", -> assert.isAbove result, 330
+  it "printed a value above 310", -> assert.isAbove result, 310
   it "printed a value below 400", -> assert.isBelow result, 400
 
 describe "scripts/difference.coffee", ->
