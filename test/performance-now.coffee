@@ -1,4 +1,6 @@
-{assert} = require "chai"
+chai = require "chai"
+chai.use(require "chai-increasing")
+{assert,expect} = chai
 Bluebird = require "bluebird"
 
 now = require "../"
@@ -19,6 +21,10 @@ describe "now", ->
     @timeout 1000
     now() for [0...1e6]
     undefined
+
+  it "for 10,000 numbers, number n is never bigger than number n-1", ->
+    stamps = (now() for [1...10000])
+    expect(stamps).to.be.increasing
 
   it "shows that at least 0.2 ms has passed after a timeout of 1 ms", ->
     earlier = now()
