@@ -24,9 +24,9 @@ describe "now", ->
     earlier = now()
     Bluebird.resolve().delay(1).then -> assert.isAbove (now()-earlier), 0.2
 
-  it "shows that at most 2 ms has passed after a timeout of 1 ms", ->
+  it "shows that at most 3 ms has passed after a timeout of 1 ms", ->
     earlier = now()
-    Bluebird.resolve().delay(1).then -> assert.isBelow (now()-earlier), 2
+    Bluebird.resolve().delay(1).then -> assert.isBelow (now()-earlier), 3
 
   it "shows that at least 190ms ms has passed after a timeout of 200ms", ->
     earlier = now()
