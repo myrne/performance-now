@@ -1,7 +1,7 @@
 #!/usr/bin/env ./node_modules/.bin/coffee
 
 ###
-Expected output is a number above 310 and below 400.
+Expected output is a number above 300 and below 550.
 The time reported is relative to the time the node.js process was started
 this is approximately at `(Date.now() process.uptime() * 1000)`
 ###
