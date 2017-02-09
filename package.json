@@ -30,5 +30,6 @@
     "pretest": "npm run build",
     "test": "node_modules/.bin/mocha",
     "watch": "node_modules/.bin/coffee --watch --compile --output lib/ src/"
-  }
+  },
+  "typings": "src/index.d.ts"
 }
