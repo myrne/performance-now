@@ -20,7 +20,8 @@
     "chai-increasing": "^1.2.0",
     "coffee-script": "~1.12.2",
     "mocha": "~3.2.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "typescript": "^2.1.6"
   },
   "optionalDependencies": {},
   "main": "lib/performance-now.js",
@@ -28,7 +29,7 @@
     "build": "mkdir -p lib && rm -rf lib/* && node_modules/.bin/coffee --compile -m --output lib/ src/",
     "prepublish": "npm test",
     "pretest": "npm run build",
-    "test": "node_modules/.bin/mocha",
+    "test": "node_modules/.bin/mocha && tsc --noEmit src/index.d.ts test/test-typings.ts",
     "watch": "node_modules/.bin/coffee --watch --compile --output lib/ src/"
   },
   "typings": "src/index.d.ts"
