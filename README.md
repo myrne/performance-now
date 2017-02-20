@@ -1,5 +1,7 @@
 # performance-now [![Build Status](https://travis-ci.org/braveg1rl/performance-now.png?branch=master)](https://travis-ci.org/braveg1rl/performance-now) [![Dependency Status](https://david-dm.org/braveg1rl/performance-now.png)](https://david-dm.org/braveg1rl/performance-now)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/braveg1rl/performance-now.svg)](https://greenkeeper.io/)
+
 Implements a function similar to `performance.now` (based on `process.hrtime`).
 
 Modern browsers have a `window.performance` object with - among others - a `now` method which gives time in milliseconds, but with sub-millisecond precision. This module offers the same function based on the Node.js native `process.hrtime` function.
