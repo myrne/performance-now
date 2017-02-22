@@ -21,7 +21,7 @@
     "coffee-script": "~1.12.2",
     "mocha": "~3.2.0",
     "pre-commit": "^1.2.2",
-    "typescript": "^2.1.6"
+    "typescript": "^2.2.1"
   },
   "optionalDependencies": {},
   "main": "lib/performance-now.js",
