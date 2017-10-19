@@ -21,6 +21,8 @@
     "coffee-script": "~1.12.2",
     "mocha": "~3.2.0",
     "pre-commit": "^1.2.2",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.14.0",
     "typescript": "^2.1.6"
   },
   "optionalDependencies": {},
