@@ -1,5 +1,7 @@
+Sinon = require "sinon"
 chai = require "chai"
 chai.use(require "chai-increasing")
+chai.use( require "sinon-chai")
 {assert,expect} = chai
 Bluebird = require "bluebird"
 
@@ -41,3 +43,13 @@ describe "now", ->
   it "shows that at most 220 ms has passed after a timeout of 200ms", ->
     earlier = now()
     Bluebird.resolve().delay(200).then -> assert.isBelow (now()-earlier), 220
+
+  it "should be able to be patched", ->
+    originalHrTime = global.process.hrtime; # Keep original reference
+    spy = Sinon.spy(global.process, 'hrtime')
+
+    now()
+
+    global.process.hrtime = originalHrTime; # Clean up after test
+
+    expect(spy).to.have.been.calledOnce

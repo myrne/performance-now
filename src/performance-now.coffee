@@ -2,9 +2,8 @@ if performance? and performance.now
   module.exports = -> performance.now()
 else if process? and process.hrtime
   module.exports = -> (getNanoSeconds() - nodeLoadTime) / 1e6
-  hrtime = process.hrtime
   getNanoSeconds = ->
-    hr = hrtime()
+    hr = process.hrtime()
     hr[0] * 1e9 + hr[1]
   moduleLoadTime = getNanoSeconds()
   upTime = process.uptime() * 1e9
