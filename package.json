@@ -17,7 +17,7 @@
     "bluebird": "^3.4.7",
     "call-delayed": "^1.0.0",
     "chai": "^3.5.0",
-    "chai-increasing": "^1.2.0",
+    "chai-increasing": "^2.0.0",
     "coffee-script": "~1.12.2",
     "mocha": "~3.2.0",
     "pre-commit": "^1.2.2",
