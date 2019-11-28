@@ -14,7 +14,7 @@
   "private": false,
   "dependencies": {},
   "devDependencies": {
-    "bluebird": "^3.4.7",
+    "bluebird": "^3.7.2",
     "call-delayed": "^1.0.0",
     "chai": "^3.5.0",
     "chai-increasing": "^1.2.0",
