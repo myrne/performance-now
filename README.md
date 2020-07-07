@@ -19,7 +19,7 @@ var now = require("performance-now")
 var start = now()
 var end = now()
 console.log(start.toFixed(3)) // the number of milliseconds the current node process is running
-console.log((start-end).toFixed(3)) // ~ 0.002 on my system
+console.log((end - start).toFixed(3)) // ~ 0.002 on my system
 ```
 
 Running the now function two times right after each other yields a time difference of a few microseconds. Given this overhead, I think it's best to assume that the precision of intervals computed with this method is not higher than 10 microseconds, if you don't know the exact overhead on your own system.
